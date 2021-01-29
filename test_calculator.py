@@ -17,7 +17,7 @@ def test_substract():
 
 def test_divide():
     calculator = Calculator()
-    result = calculator.divide(10,0)
+    result = calculator.divide(10,2)
     assert 5 == result
 
 def test_subtract():
@@ -36,6 +36,7 @@ def test_wierder_stuff():
     calculator = Calculator()
     with pytest.raises(CalculatorError):
         result = calculator.add('hello', 'wolrd')
+
 
 def test_divide_by_zero():
     calculator = Calculator()

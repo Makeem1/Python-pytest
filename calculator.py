@@ -21,9 +21,10 @@ class Calculator():
 
     def divide(self, a, b ):
         try:
-            return a / b
-        except ZeroDivisionError as ex:
-            raise CalculatorError("Can't divide by Zero") from ex
+            return a/b 
+        except ZeroDivisionError as es:
+            raise CalculatorError("Can't divide by zero") from es
+        
 
     def _check_operand(self, operand):
         """Check that the operand is a number."""
