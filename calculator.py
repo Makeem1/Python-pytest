@@ -4,6 +4,9 @@ import sys
 class CalculatorError(Exception):
     """An exception for calculator"""
 
+class MyError(Exception):
+    """An exception error for a particular parameter"""
+
 class Calculator():
     """Calculator for trying how pytest works"""
 
@@ -30,6 +33,13 @@ class Calculator():
         """Check that the operand is a number."""
         if not isinstance(operand, numbers.Number):
             raise CalculatorError(f'"{operand}" is not a number.')
+
+    def add_int(self, a , b):
+        if a == 99:
+            raise MyError()
+        else:
+            return a + b 
+            
          
 
 if __name__ == "__main__":
