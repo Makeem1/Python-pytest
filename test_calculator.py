@@ -40,7 +40,6 @@ def test_wierder_stuff():
 def test_divide_by_zero():
     calculator = Calculator()
     with pytest.raises(CalculatorError):
-        result = calculator.divide(10,0)
+        result = calculator.divide(9, 0)
     
-
 

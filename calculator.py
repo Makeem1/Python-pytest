@@ -22,8 +22,8 @@ class Calculator():
     def divide(self, a, b ):
         try:
             return a / b
-        except ZeroDivisionError as es:
-            raise CalculatorError("Can't divide by Zero")
+        except ZeroDivisionError as ex:
+            raise CalculatorError("Can't divide by Zero") from ex
 
     def _check_operand(self, operand):
         """Check that the operand is a number."""
@@ -41,7 +41,15 @@ if __name__ == "__main__":
         calculator.multiply
     ]
 
+    operation_num = [
+        1,
+        2,
+        3,
+        4
+    ]
+
     while True:
+        print("Pick an operation to perform : ")
         for index, operation in enumerate(operations, start=1):
             print(f"'{index}' ----- {operation.__name__}")
         
@@ -49,6 +57,9 @@ if __name__ == "__main__":
             
         if operation == "q":
             sys.exit()
+        if int(operation) not in operation_num:
+            sys.exit()
+
         op = int(operation)
         a = float(input("what is a "))
         b = float(input("what is b "))
@@ -56,4 +67,4 @@ if __name__ == "__main__":
         try:
             print(operations[op - 1](a,b))
         except CalculatorError as ex:
-            print('can\'t divide by zero')
+            print(es)
