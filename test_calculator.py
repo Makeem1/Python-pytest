@@ -5,8 +5,8 @@ import pytest
 
 def test_add():
     calculator = Calculator()
-    result = calculator.add("helo", "helo")
-    assert "helohelo" == result
+    result = calculator.add(5, 7)
+    assert 12 == result
 
 
 def test_substract():
@@ -17,18 +17,30 @@ def test_substract():
 
 def test_divide():
     calculator = Calculator()
-    result = calculator.divide(10,2)
+    result = calculator.divide(10,0)
     assert 5 == result
 
-
-def test_do_some_weird_stuff():
+def test_subtract():
     calculator = Calculator()
-    with pytest.raises(CalculatorError) as context:
-        result = calculator.add("hello",2)
-    
-    assert str(context.value) == 'this does not accept a sring value'
+    result = calculator.multiply(2,4)
+    assert 8 == result
 
-def test_do_some_weirder_stuff():
+def test_wierd_stuff():
     calculator = Calculator()
     with pytest.raises(CalculatorError):
-        result = calculator.add("a","b")
+        result = calculator.add("two", "3")
+
+
+
+def test_wierder_stuff():
+    calculator = Calculator()
+    with pytest.raises(CalculatorError):
+        result = calculator.add('hello', 'wolrd')
+
+def test_divide_by_zero():
+    calculator = Calculator()
+    with pytest.raises(CalculatorError):
+        result = calculator.divide(10,0)
+    
+
+
