@@ -81,6 +81,11 @@ class TestCapsys:
         out , err = capsys.readouterr()
         assert "hello world" in out 
 
+    def test_captured_another(self, capsys, captured_fixture):
+        print("world")
+        out , err = capsys.readouterr()
+        assert out == "hello\nworld\n"
+
     
 class TestMonkeyPatch():
     """Grouping each test task into groups using capsys """
