@@ -1,5 +1,6 @@
 import numbers
 import sys
+import json
 
 class CalculatorError(Exception):
     """An exception for calculator"""
@@ -39,6 +40,10 @@ class Calculator():
             raise MyError()
         else:
             return a + b 
+
+    def read_json(self,some_path):
+        with open(some_path , "r") as f:
+            return json.load(f)
             
          
 

@@ -91,6 +91,17 @@ class TestMonkeyPatch():
         monkeypatch.setattr(calculator, 'add', fake_add)
         assert calculator.add(2,4) == 42
 
+class TestTempDir():
+    """Grouping each test task into groups using capsys """
+    def test_tempdir(self,  tmpdir):
+        some_file =  tmpdir.join('something.txt')
+        some_file.write('{"hello" : "world"}')
+
+        result = Calculator()
+        out = result.read_json(str(some_file))
+        assert out["hello"] == "world"
+
+
 
 
 
