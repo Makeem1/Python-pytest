@@ -66,12 +66,30 @@ class TestDivide:
         with pytest.raises(CalculatorError):
             result = calculator.divide(9, 0)
 
+class TestFixture:
+    """Grouping each test task into groups by using fixture  """
+    def test_fixture(self,my_fixture):
+        assert my_fixture == 42
 
-
-
-
+    def test_fixture_one(self,one_fixture):
+        assert one_fixture == 'hello world'
     
 
+class TestCapsys:
+    """Grouping each test task into groups using capsys """
+    def test_capsys_one(self,capsys, one_fixture):
+        out , err = capsys.readouterr()
+        assert "hello world" in out 
+
+    
+class TestMonkeyPatch():
+    """Grouping each test task into groups using capsys """
+    def test_monkeypatch(self,monkeypatch):
+        calculator =  Calculator()
+        def fake_add(a,b):
+           return 42
+        monkeypatch.setattr(calculator, 'add', fake_add)
+        assert calculator.add(2,4) == 42
 
 
 
